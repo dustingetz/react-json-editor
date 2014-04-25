@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     lodash: '../bower_components/lodash/dist/lodash.compat',
                     react: '../bower_components/react/react-with-addons',
                     'wingspan-cursor': '../bower_components/wingspan-cursor/dist/wingspan-cursor',
-                    'react-treeview': '../bower_components/react-treeview/react-treeview',
+                    'react-treeview': '../react-treeview/react-treeview',
                     almond: '../bower_components/almond/almond'
                 },
 
