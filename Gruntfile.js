@@ -80,7 +80,8 @@ module.exports = function (grunt) {
                 },
 
                 shim: {
-                    'lodash': { deps: [], exports: '_' }
+                    'lodash': { deps: [], exports: '_' },
+                    'react-treeview': { deps: ['react'], exports: 'TreeView' }
                 },
 
                 uglify: {
