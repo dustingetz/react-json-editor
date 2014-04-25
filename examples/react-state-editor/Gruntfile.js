@@ -61,46 +61,6 @@ module.exports = function (grunt) {
             }
         },
 
-        requirejs: {
-            options: {
-                optimize: 'none',
-                inlineText: true,
-                useStrict: true,
-                skipPragmas: true,
-                preserveLicenseComments: true,
-
-                baseUrl: 'js-built',
-
-                paths: {
-                    lodash: '../bower_components/lodash/dist/lodash.compat',
-                    react: '../bower_components/react/react-with-addons',
-                    'wingspan-cursor': '../bower_components/wingspan-cursor/dist/wingspan-cursor',
-                    'react-json-editor': '../../../dist/react-json-editor'
-                },
-
-                shim: {
-                    'lodash': { deps: [], exports: '_' },
-                    'react-treeview': { deps: ['react'], exports: 'TreeView' }
-                },
-
-                uglify: {
-                    toplevel: true,
-                    ascii_only: true,
-                    beautify: true,
-                    max_line_length: 1000,
-                    defines: { DEBUG: ['name', 'false'] },
-                    no_mangle: true
-                }
-            },
-            compile: {
-                options: {
-                    out: 'dist/react-json-editor.js',
-                    include: ['almond', 'react-json-editor'], // react-treeview is bundled
-                    exclude: ['require', 'lodash', 'react', 'wingspan-cursor']
-                }
-            }
-        },
-
         copy: {
             'libs': {
                 files: [
@@ -142,5 +102,4 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('default', ['bower:install', 'subgrunt', 'copy', 'react', 'less']);
-    grunt.registerTask('release', ['clean', 'bower:install', 'subgrunt', 'copy', 'react', 'less', 'requirejs']);
 };
