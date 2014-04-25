@@ -56,19 +56,6 @@ define([
                         canToggle={this.props.canToggle} />
                     <button onClick={this.initializeEditor}>initialize editor</button>
                     <button onClick={this.commitEditor}>commit editor</button>
-//                    <div className="editorStateDiagnostics">
-//                        <div>
-//                            targetCursor
-//                            <PrettyJson value={this.props.targetCursor.value} />
-//                        </div>
-//                        <div>
-//                            editorCursor
-//                            <PrettyJson value={editorCursor.value} />
-//                        </div>
-//                        <div>
-//                            <JsonLeafEditor cursor={editorCursor} />
-//                        </div>
-//                    </div>
                 </div>
             );
         },
