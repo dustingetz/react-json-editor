@@ -10,25 +10,22 @@ define([
 
         getInitialState: function () {
             return {
-                app: {
-                    a: 10,
-                    b: '20',
-                    c: null,
-                    d: {
-                        foo: {
-                            bar: 42,
-                            baz: 55,
-                            buzz: 'womp'
-                        }
-                    },
-                    e: [
-                        { name: 'Alice', id: 0 },
-                        { name: 'Bob', id: 1 },
-                        { name: 'Charlie', id: 2 },
-                        { name: 'David', id: 3 }
-                    ]
+                a: 10,
+                b: '20',
+                c: null,
+                d: {
+                    foo: {
+                        bar: 42,
+                        baz: 55,
+                        buzz: 'womp'
+                    }
                 },
-                debug: {}
+                e: [
+                    { name: 'Alice', id: 0 },
+                    { name: 'Bob', id: 1 },
+                    { name: 'Charlie', id: 2 },
+                    { name: 'David', id: 3 }
+                ]
             };
         },
 
@@ -43,7 +40,7 @@ define([
                     </div>
                     <div>
                         Editor
-                        <JsonEditor targetCursor={rootCursor.refine('app')} editorCursor={rootCursor.refine('debug')}/>
+                        <JsonEditor targetCursor={rootCursor} />
                     </div>
                 </div>
             );

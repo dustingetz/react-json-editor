@@ -11,14 +11,15 @@ define([
         getDefaultProps: function () {
             return {
                 targetCursor: undefined, // the app state that we're targetting
-                editorCursor: undefined, // the editor's state
                 toggleOnDoubleClick: false,
                 canToggle: true
             };
         },
 
         getInitialState: function () {
-            // JsonEditor will be stateful iff this.props.editorCursor is not present.
+            // JsonEditor is stateful because it is a diagnostic component.
+            // We want to be able to attach to an app's state without needing to
+            // add aditional keys to the app state to maintain uncommitted values.
             return {};
         },
 
@@ -34,41 +35,40 @@ define([
         },
 
         shouldComponentUpdate: function (nextProps, nextState) {
-            // cursor is a special object with function values - not JSON serializable,
-            // but the JsonEditor understands cursors so we can do the right thing
             var unchanged =
-                _.isEqual(_.omit(this.props, 'targetCursor', 'editorCursor'),
-                          _.omit(nextProps, 'targetCursor', 'editorCursor')) &&
+                // cursor is a special object with function values - not JSON serializable
+                _.isEqual(_.omit(this.props, 'targetCursor'), _.omit(nextProps, 'targetCursor')) &&
+                // but the JsonEditor understands cursors so we can do the right thing
                 _.isEqual(this.props.targetCursor.value, nextProps.targetCursor.value) &&
-                _.isEqual(this.props.editorCursor.value, nextProps.editorCursor.value);
+                _.isEqual(this.state, nextState);
             return !unchanged;
         },
 
         render: function () {
-            var editorCursor = this.props.editorCursor ||
-                Cursor.build(this.state, this.setState.bind(this), _.cloneDeep);
+            var editorCursor = Cursor.build(this.state, this.setState.bind(this), _.cloneDeep);
+            var targetCursor = this.props.targetCursor;
 
             return (
                 <div>
+                    <button onClick={_.partial(this.initializeEditor, editorCursor, targetCursor)}>attach</button>
+                    <button onClick={_.partial(this.commitEditor, editorCursor, targetCursor)}>commit</button>
                     <TreeView className="JsonEditor"
                         source={buildConfig(editorCursor)}
                         toggleOnDoubleClick={this.props.toggleOnDoubleClick}
                         canToggle={this.props.canToggle} />
-                    <button onClick={this.initializeEditor}>initialize editor</button>
-                    <button onClick={this.commitEditor}>commit editor</button>
                 </div>
             );
         },
 
-        initializeEditor: function () {
-            this.props.editorCursor.onChange(this.props.targetCursor.value);
+        initializeEditor: function (editorCursor, targetCursor) {
+            editorCursor.onChange(targetCursor.value);
         },
 
-        commitEditor: function () {
-            this.props.targetCursor.onChange(this.props.editorCursor.value);
+        commitEditor: function (editorCursor, targetCursor) {
+            targetCursor.onChange(editorCursor.value);
 
             // this line causes the prior onChange to have no effect - don't know why
-            //this.props.editorCursor.onChange({});
+            //editorCursor.onChange({});
         }
     });
 
