@@ -3,7 +3,6 @@
     define('lodash', function () { return _; });
     define('react', function () { return React; });
     define('wingspan-cursor', function () { return WingspanCursor; });
-    define('react-treeview', function () { return TreeView; });
 
     return require('react-json-editor');
 }));

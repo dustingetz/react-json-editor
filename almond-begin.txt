@@ -3,10 +3,9 @@
         define([
             'lodash',
             'react',
-            'wingspan-cursor',
-            'react-treeview'
+            'wingspan-cursor'
         ], factory);
     } else {
-        root.JsonEditor = factory(root._, root.React, root.WingspanCursor, root.TreeView);
+        root.JsonEditor = factory(root._, root.React, root.WingspanCursor);
     }
-}(this, function (_, React, WingspanCursor, TreeView) {
+}(this, function (_, React, WingspanCursor) {
