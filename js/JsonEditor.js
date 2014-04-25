@@ -16,24 +16,6 @@ define([
             };
         },
 
-        getInitialState: function () {
-            // JsonEditor is stateful because it is a diagnostic component.
-            // We want to be able to attach to an app's state without needing to
-            // add aditional keys to the app state to maintain uncommitted values.
-            return {};
-        },
-
-        componentWillMount: function () {
-            //// initialize the editor with the target state
-            //this.props.editorCursor.onChange(this.props.targetCursor.value);
-
-            // componentWillMount is allowed to call this.setState, but can't cause a setState
-            // at the root. Thus writing to a cursor here will cause:
-            // Uncaught Error: Invariant Violation: receiveComponent(...): Can only update a mounted component.
-            //
-            // As a work around, we will not initialize the editor state until we click on something.
-        },
-
         shouldComponentUpdate: function (nextProps, nextState) {
             var unchanged =
                 // cursor is a special object with function values - not JSON serializable
@@ -45,30 +27,16 @@ define([
         },
 
         render: function () {
-            var editorCursor = Cursor.build(this.state, this.setState.bind(this), _.cloneDeep);
-            var targetCursor = this.props.targetCursor;
+            var editorCursor = this.props.targetCursor; //Cursor.build(this.state, this.setState.bind(this), _.cloneDeep);
 
             return (
                 <div>
-                    <button onClick={_.partial(this.initializeEditor, editorCursor, targetCursor)}>attach</button>
-                    <button onClick={_.partial(this.commitEditor, editorCursor, targetCursor)}>commit</button>
                     <TreeView className="JsonEditor"
                         source={buildConfig(editorCursor)}
                         toggleOnDoubleClick={this.props.toggleOnDoubleClick}
                         canToggle={this.props.canToggle} />
                 </div>
             );
-        },
-
-        initializeEditor: function (editorCursor, targetCursor) {
-            editorCursor.onChange(targetCursor.value);
-        },
-
-        commitEditor: function (editorCursor, targetCursor) {
-            targetCursor.onChange(editorCursor.value);
-
-            // this line causes the prior onChange to have no effect - don't know why
-            //editorCursor.onChange({});
         }
     });
 
