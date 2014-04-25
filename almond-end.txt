@@ -1,0 +1,9 @@
+// Fake out the almond loader - shim these dependencies to their globals.
+    // Make sure these globals are already on the page - e.g. by require-shims in the app
+    define('lodash', function () { return _; });
+    define('react', function () { return React; });
+    define('wingspan-cursor', function () { return WingspanCursor; });
+    define('react-treeview', function () { return TreeView; });
+
+    return require('react-json-editor');
+}));
