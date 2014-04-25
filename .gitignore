@@ -4,3 +4,5 @@ Thumbs.db
 /bower_components
 /dist
 /js-built
+/.idea
+/npm-debug.log

@@ -26,6 +26,9 @@ module.exports = function (grunt) {
         subgrunt: {
             'wingspan-cursor': {
                 'bower_components/wingspan-cursor': ['release']
+            },
+            'react-json-editor': {
+                '../../': ['release']
             }
         },
 
@@ -34,9 +37,9 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'js',
+                        cwd: 'webapp/js',
                         src: ['**/*.js'],
-                        dest: 'js-built',
+                        dest: 'webapp/js-built',
                         ext: '.js'
                     }
                 ]
@@ -53,7 +56,7 @@ module.exports = function (grunt) {
                     relativeUrls: true
                 },
                 files: {
-                    'dist/react-json-editor.css': 'styles/react-json-editor.less'
+                    'webapp/styles/App.css': 'webapp/styles/App.less'
                 }
             }
         },
@@ -66,20 +69,13 @@ module.exports = function (grunt) {
                 skipPragmas: true,
                 preserveLicenseComments: true,
 
-                wrap: {
-                    "startFile": "almond-begin.txt",
-                    "endFile": "almond-end.txt"
-                },
-
-
                 baseUrl: 'js-built',
 
                 paths: {
                     lodash: '../bower_components/lodash/dist/lodash.compat',
                     react: '../bower_components/react/react-with-addons',
                     'wingspan-cursor': '../bower_components/wingspan-cursor/dist/wingspan-cursor',
-                    'react-treeview': '../react-treeview/react-treeview',
-                    almond: '../bower_components/almond/almond'
+                    'react-json-editor': '../../../dist/react-json-editor'
                 },
 
                 shim: {
@@ -105,6 +101,34 @@ module.exports = function (grunt) {
             }
         },
 
+        copy: {
+            'libs': {
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            'bower_components/jquery/jquery.js',
+                            'bower_components/lodash/dist/lodash.compat.js',
+                            'bower_components/react/react-with-addons.js',
+                            'bower_components/requirejs/require.js',
+                            'bower_components/wingspan-cursor/dist/wingspan-cursor.js'
+                        ],
+                        dest: 'webapp/lib',
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'react-json-editor/dist/',
+                        src: ['react-json-editor.js', 'react-json-editor.css'],
+                        dest: 'webapp/lib/react-json-editor/',
+                        flatten: false
+                    }
+
+                ]
+            }
+        },
+
         clean: ['bower_components', 'dist']
     });
 
@@ -115,7 +139,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-subgrunt');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['bower:install', 'subgrunt', 'react', 'less']);
-    grunt.registerTask('release', ['clean', 'bower:install', 'subgrunt', 'react', 'less', 'requirejs']);
+    grunt.registerTask('default', ['bower:install', 'subgrunt', 'copy', 'react', 'less']);
+    grunt.registerTask('release', ['clean', 'bower:install', 'subgrunt', 'copy', 'react', 'less', 'requirejs']);
 };
