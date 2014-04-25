@@ -42,6 +42,10 @@ define([
                         Editor
                         <JsonEditor targetCursor={rootCursor} />
                     </div>
+                    <div>
+                        Second editor, because we can
+                        <JsonEditor targetCursor={rootCursor} />
+                    </div>
                 </div>
             );
         }
