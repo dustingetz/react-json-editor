@@ -1,9 +1,11 @@
-react-json-editor
-=================
-
-A generic JSON editor, specifically designed for attaching to React state values.
+# react-json-editor
+> A generic JSON editor, specifically designed for attaching to React state values.
 
 This project uses submodules, so **clone with `--recursive`**.
+
+[![live demo](docs/_assets/json-editor.png?raw=true)](http://shopkeeper-toad-52081.bitballoon.com/examples/react-state-editor/webapp/)
+
+[Here is a live demo](http://shopkeeper-toad-52081.bitballoon.com/examples/react-state-editor/webapp/).
 
 ## Build the library
 
