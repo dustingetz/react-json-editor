@@ -183,7 +183,7 @@ define([
             });
 
             return {
-                displayNode: displayNodeLabel(_.str.sprintf('%s [%s]', key, node.length)),
+                displayNode: displayNodeLabel(key + ' [' + node.length + ']'),
                 children: buildConfigArray(acc) // list of refined cursors
             };
         }
