@@ -71,7 +71,7 @@ define([
             var leaf = (this.state.editing
                 ? [(<input key="0" value={this.state.jsValue} onChange={this.onChange} style={{background: 'transparent'}}/>),
                    (<button key="1" onClick={this.commit} disabled={!this.isValid()}>commit</button>)]
-                : [(<code key="2" onClick={this.edit}>{this.state.jsValue}</code>)]);
+                : [(<code key="2" className="editButton" onClick={this.edit}>{this.state.jsValue}</code>)]);
 
             return (
                 <span className={classes.join(' ')}>
