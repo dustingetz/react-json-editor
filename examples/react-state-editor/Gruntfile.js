@@ -28,7 +28,7 @@ module.exports = function (grunt) {
                 'bower_components/wingspan-cursor': ['release']
             },
             'react-json-editor': {
-                '../../': ['release']
+                '../../': ['default']
             }
         },
 

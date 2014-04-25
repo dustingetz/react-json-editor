@@ -116,6 +116,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('default', ['bower:install', 'subgrunt', 'react', 'less']);
-    grunt.registerTask('release', ['clean', 'bower:install', 'subgrunt', 'react', 'less', 'requirejs']);
+    grunt.registerTask('default', ['clean', 'bower:install', 'subgrunt', 'react', 'less', 'requirejs']);
 };
