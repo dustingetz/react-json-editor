@@ -71,6 +71,7 @@ module.exports = function (grunt) {
                             'bower_components/lodash/dist/lodash.compat.js',
                             'bower_components/react/react-with-addons.js',
                             'bower_components/requirejs/require.js',
+                            'bower_components/requirejs-text/text.js',
                             'bower_components/wingspan-cursor/dist/wingspan-cursor.js'
                         ],
                         dest: 'webapp/lib',
