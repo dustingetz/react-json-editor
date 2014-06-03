@@ -1,37 +1,24 @@
 /** @jsx React.DOM */
 define([
-    'lodash', 'react', 'wingspan-cursor',
-    'react-json-editor'
-], function (_, React, Cursor, JsonEditor) {
+    'lodash', 'react', 'ReactCursor',
+    'react-json-editor', 'text!textassets/DummyData.json'
+], function (_, React, Cursor, JsonEditor, DummyData) {
     'use strict';
 
 
     var App = React.createClass({
 
         getInitialState: function () {
-            return {
-                a: 10,
-                b: '20',
-                c: null,
-                d: {
-                    foo: {
-                        bar: 42,
-                        baz: 55,
-                        buzz: 'womp'
-                    }
-                },
-                e: [
-                    { name: 'Alice', id: 0 },
-                    { name: 'Bob', id: 1 },
-                    { name: 'Charlie', id: 2 },
-                    { name: 'David', id: 3 }
-                ]
-            };
+            // Dummy data courtesy of json-generator.com
+            return JSON.parse(DummyData);
         },
 
+        getPendingState: function () {
+            return this._pendingState || this.state;
+        },
 
         render: function () {
-            var rootCursor = Cursor.build(this.state, this.setState.bind(this), _.cloneDeep);
+            var rootCursor = Cursor.build(this.state, this.getPendingState, this.setState.bind(this));
             return (
                 <div className="App">
                     <div>

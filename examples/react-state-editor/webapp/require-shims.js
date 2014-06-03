@@ -9,7 +9,9 @@
             'lodash': '../lib/lodash.compat',
             'react': '../lib/react-with-addons',
             'wingspan-cursor': '../lib/wingspan-cursor',
-            'react-json-editor': '../../../../dist/react-json-editor'
+            'react-json-editor': '../../../../dist/react-json-editor',
+            'text': '../lib/text',
+            'textassets': '../textassets/'
         },
         shim: {
             'jquery': { deps: [], exports: '$' },
