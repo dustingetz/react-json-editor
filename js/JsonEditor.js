@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 define([
-    'lodash', 'react', 'wingspan-cursor', 'react-treeview',
+    'lodash', 'react', 'react-cursor', 'react-treeview',
     'JsonLeafEditor'
 ], function (_, React, Cursor, TreeView, JsonLeafEditor) {
     'use strict';

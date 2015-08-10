@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 define([
-    'lodash', 'react', 'wingspan-cursor', 'react-treeview'
+    'lodash', 'react', 'react-cursor', 'react-treeview'
 ], function (_, React, Cursor, TreeView) {
     'use strict';
 

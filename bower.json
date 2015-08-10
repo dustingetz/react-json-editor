@@ -18,7 +18,7 @@
     "lodash": "~2.4.1",
     "react": "~0.10.0",
     "requirejs": "~2.1.9",
-    "wingspan-cursor": "5fb7e0c4c7920be2d47848b0d642ccc54438f83d",
+    "react-cursor": "~1.1.0",
     "almond": "~0.2.7"
   }
 }

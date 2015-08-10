@@ -24,8 +24,8 @@ module.exports = function (grunt) {
         },
 
         subgrunt: {
-            'wingspan-cursor': {
-                'bower_components/wingspan-cursor': ['release']
+            'react-cursor': {
+                'bower_components/react-cursor': ['release']
             }
         },
 
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
                 paths: {
                     lodash: '../bower_components/lodash/dist/lodash.compat',
                     react: '../bower_components/react/react-with-addons',
-                    'wingspan-cursor': '../bower_components/wingspan-cursor/dist/wingspan-cursor',
+                    'react-cursor': '../bower_components/react-cursor/dist/react-cursor',
                     'react-treeview': '../react-treeview/react-treeview',
                     almond: '../bower_components/almond/almond'
                 },
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                 options: {
                     out: 'dist/react-json-editor.js',
                     include: ['almond', 'react-json-editor'], // react-treeview is bundled
-                    exclude: ['require', 'lodash', 'react', 'wingspan-cursor']
+                    exclude: ['require', 'lodash', 'react', 'react-cursor']
                 }
             }
         },

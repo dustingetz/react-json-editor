@@ -24,8 +24,8 @@ module.exports = function (grunt) {
         },
 
         subgrunt: {
-            'wingspan-cursor': {
-                'bower_components/wingspan-cursor': ['release']
+            'react-cursor': {
+                'bower_components/react-cursor': ['release']
             },
             'react-json-editor': {
                 '../../': ['default']
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                             'bower_components/lodash/dist/lodash.compat.js',
                             'bower_components/react/react-with-addons.js',
                             'bower_components/requirejs/require.js',
-                            'bower_components/wingspan-cursor/dist/wingspan-cursor.js'
+                            'bower_components/react-cursor/dist/react-cursor.js'
                         ],
                         dest: 'webapp/lib',
                         flatten: true,
