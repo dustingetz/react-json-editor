@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 define([
-    'lodash', 'react', 'wingspan-cursor',
+    'lodash', 'react', 'react-cursor',
     'react-json-editor'
 ], function (_, React, Cursor, JsonEditor) {
     'use strict';
