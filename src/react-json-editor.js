@@ -11,24 +11,25 @@ class JsonEditor extends React.Component {
     var cur = this.props.targetCursor;
     var val = cur.value();
 
-    if (_.isArray(val) || _.isObject(val)) {
-      const treeview = _.map(val, (v, k) => {
-        const label = <span className="node">{k}</span>;
-        return <TreeView nodeLabel={label}><JsonEditor targetCursor={cur.refine(k)}/></TreeView>
-      });
+    console.assert(_.isArray(val) || _.isObject(val), 'todo');
 
-      return <div>{treeview}</div>;
-    }
-    else {
-      return <div>{JSON.stringify(val)}</div>
-    }
+    const el = _.map(val, (v, k) => {
+      if (_.isArray(v) || _.isObject(v)) {
+        return <JsonEditor targetCursor={cur.refine(k)}
+                           nodeLabel={k}/>;
+      }
+      else {
+        return <div>{k}: {JSON.stringify(v)}</div>;
+      }
+    });
+
+    return <TreeView nodeLabel={this.props.nodeLabel}>{el}</TreeView>
   }
 }
 
 JsonEditor.defaultProps = {
-  targetCursor: undefined, // the app state that we're targetting
-  toggleOnDoubleClick: false,
-  canToggle: true
+  targetCursor: undefined, // the app state that we're targeting
+  nodeLabel: <span>root</span>
 };
 
 export default JsonEditor;
