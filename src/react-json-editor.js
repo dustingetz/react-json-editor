@@ -15,21 +15,23 @@ class JsonEditor extends React.Component {
 
     const el = _.map(val, (v, k) => {
       if (_.isArray(v) || _.isObject(v)) {
-        return <JsonEditor targetCursor={cur.refine(k)}
-                           nodeLabel={k}/>;
+        return (
+            <TreeView nodeLabel={k}>
+              <JsonEditor targetCursor={cur.refine(k)}/>
+            </TreeView>
+        );
       }
       else {
         return <div>{k}: {JSON.stringify(v)}</div>;
       }
     });
 
-    return <TreeView nodeLabel={this.props.nodeLabel}>{el}</TreeView>
+    return <div>{el}</div>;
   }
 }
 
 JsonEditor.defaultProps = {
-  targetCursor: undefined, // the app state that we're targeting
-  nodeLabel: <span>root</span>
+  targetCursor: undefined // the app state that we're targeting
 };
 
 export default JsonEditor;
