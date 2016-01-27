@@ -6,15 +6,20 @@ import JsonLeafEditor from './JsonLeafEditor';
 
 class JsonEditor extends React.Component {
   render() {
-    var editorCursor = this.props.targetCursor;
-    return (
-        <div>
-          <TreeView className="JsonEditor"
-                    source={buildConfig(editorCursor)}
-                    toggleOnDoubleClick={this.props.toggleOnDoubleClick}
-                    canToggle={this.props.canToggle} />
-        </div>
-    );
+    var cur = this.props.targetCursor;
+    var val = cur.value();
+
+    if (_.isArray(val) || _.isObject(val)) {
+      const treeview = _.map(val, (v, k) => {
+        const label = <span className="node">{k}</span>;
+        return <TreeView nodeLabel={label}><JsonEditor targetCursor={cur.refine(k)}/></TreeView>
+      });
+
+      return <div>{treeview}</div>;
+    }
+    else {
+      return <div>{JSON.stringify(val)}</div>
+    }
   }
 }
 

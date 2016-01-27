@@ -37,7 +37,7 @@ class App extends React.Component {
           </div>
           <div>
             Editor
-            {/*<JsonEditor targetCursor={rootCursor} />*/}
+            <JsonEditor targetCursor={rootCursor} />
           </div>
           <div>
             Second editor, because we can
