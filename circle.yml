@@ -1,0 +1,9 @@
+machine:
+  python:
+    version: 2.7.3
+
+dependencies:
+  pre:
+    - pip install awsebcli
+  post:
+    - webpack
