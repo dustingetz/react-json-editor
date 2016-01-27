@@ -2,14 +2,6 @@ code, pre {
   font-size: 1.1em;
 }
 
-.editorStateDiagnostics {
-  display: table;
-  > div {
-    display: table-cell;
-    width: 50%
-  }
-}
-
 .JsonLeafEditor.dirty {
   background-color: #99ccff;
 }
@@ -18,9 +10,7 @@ code, pre {
   background-color: #CC9999;
 }
 
-.JsonLeafEditor {
-  .editButton {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+.JsonLeafEditor > .editButton {
+  cursor: pointer;
+  text-decoration: underline;
 }

@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import {Cursor} from 'react-cursor';
 import TreeView from 'react-treeview';
+import "./react-json-editor.css";
 
 class JsonLeafEditor extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class JsonLeafEditor extends React.Component {
     this.commit = () => {
       this.props.cursor.set(JSON.parse(this.state.jsValue));
       this.setState({ editing: false });
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {

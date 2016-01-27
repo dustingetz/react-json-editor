@@ -3,8 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Cursor} from 'react-cursor';
 import JsonEditor from 'react-json-editor';
-
-var css = require("./styles.css");
+import "./styles.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +42,7 @@ class App extends React.Component {
           </div>
           <div>
             Second editor, because we can
-            {/*<JsonEditor targetCursor={rootCursor} />*/}
+            <JsonEditor targetCursor={rootCursor} />
           </div>
         </div>
     );
