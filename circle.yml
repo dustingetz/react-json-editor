@@ -9,3 +9,7 @@ dependencies:
     - pip install awsebcli
   post:
     - webpack
+
+general:
+  artifacts:
+    - dist
