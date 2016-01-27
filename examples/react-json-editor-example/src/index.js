@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import {Cursor} from 'react-cursor';
 import JsonEditor from 'react-json-editor';
 
+var css = require("./styles.css");
+
 class App extends React.Component {
   constructor(props) {
     super(props);

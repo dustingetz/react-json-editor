@@ -28,7 +28,8 @@ module.exports = {
 
   module: {
     loaders: [
-      {test: /\.js$/, loaders: ['babel'], include: [path.resolve('./src'), path.join(__dirname, '../../src')]}
+      {test: /\.js$/, loaders: ['babel'], include: [path.resolve('./src'), path.join(__dirname, '../../src')]},
+      {test: /\.css$/, loader: 'style!css'}
     ]
   }
 };

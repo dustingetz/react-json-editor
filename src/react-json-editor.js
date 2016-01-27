@@ -4,6 +4,8 @@ import {Cursor} from 'react-cursor';
 import TreeView from 'react-treeview';
 import JsonLeafEditor from './JsonLeafEditor';
 
+var css = require("react-treeview/react-treeview.css");
+
 class JsonEditor extends React.Component {
   render() {
     var cur = this.props.targetCursor;
