@@ -22,7 +22,7 @@ class JsonEditor extends React.Component {
         );
       }
       else {
-        return <div>{k}: {JSON.stringify(v)}</div>;
+        return <div>{k}: <JsonLeafEditor cursor={cur.refine(k)} /></div>;
       }
     });
 

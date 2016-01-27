@@ -8,14 +8,21 @@ class JsonLeafEditor extends React.Component {
     super(props);
     // Stringified value includes "type" - e.g. strings are quoted.
     this.state = {
-      jsValue: JSON.stringify(this.props.cursor.value, undefined, 2),
+      jsValue: JSON.stringify(this.props.cursor.value(), undefined, 2),
       editing: false
     };
+
+    this.onChange = (e) => this.setState({ jsValue: e.target.value });
+    this.edit = () => this.setState({ editing: true });
+    this.commit = () => {
+      this.props.cursor.set(JSON.parse(this.state.jsValue));
+      this.setState({ editing: false });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      jsValue: JSON.stringify(nextProps.cursor.value, undefined, 2)
+      jsValue: JSON.stringify(nextProps.cursor.value(), undefined, 2)
     })
   }
 
@@ -31,24 +38,7 @@ class JsonLeafEditor extends React.Component {
       (<button key="1" onClick={this.commit} disabled={!this.isValid()}>commit</button>)]
         : [(<code key="2" className="editButton" onClick={this.edit}>{this.state.jsValue}</code>)]);
 
-    return (
-        <span className={classes.join(' ')}>
-                    {leaf}
-                </span>
-    );
-  }
-
-  onChange(e) {
-    this.setState({ jsValue: e.target.value });
-  }
-
-  commit() {
-    this.props.cursor.onChange(JSON.parse(this.state.jsValue));
-    this.setState({ editing: false });
-  }
-
-  edit() {
-    this.setState({ editing: true });
+    return <span className={classes.join(' ')}>{leaf}</span>;
   }
 
   isValid() {
@@ -63,13 +53,8 @@ class JsonLeafEditor extends React.Component {
 
   isDirty() {
     if (!this.isValid()) return false; // we're invalid, not dirty
-    var unmodified = _.isEqual(JSON.parse(this.state.jsValue), this.props.cursor.value);
+    var unmodified = _.isEqual(JSON.parse(this.state.jsValue), this.props.cursor.value());
     return !unmodified;
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return !(_.isEqual(this.props.cursor.value, nextProps.cursor.value) &&
-    _.isEqual(this.state, nextState));
   }
 }
 
