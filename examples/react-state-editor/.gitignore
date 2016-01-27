@@ -1,9 +1,0 @@
-Thumbs.db
-.DS_STORE
-/node_modules
-/bower_components
-/webapp/lib/
-/webapp/js-built/
-/webapp/styles/App.css
-/webapp/Page.js
-/npm-debug.log
