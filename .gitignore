@@ -2,7 +2,6 @@ Thumbs.db
 .DS_STORE
 /node_modules
 /bower_components
-/dist
 /js-built
 /.idea
 /npm-debug.log

@@ -1,6 +1,6 @@
 {
   "name": "react-json-editor",
-  "version": "0.2.0-alpha.0",
+  "version": "0.2.0-alpha.1",
   "description": "react json editor",
   "repository": {
     "type": "git",
@@ -8,8 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "dist": "webpack --config webpack.dist.js"
+    "build": "webpack"
   },
   "main": "dist/react-json-editor.js",
   "jsnext:main": "src/react-json-editor.js",
