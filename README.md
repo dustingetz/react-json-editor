@@ -1,35 +1,16 @@
-# react-json-editor
+react-json-editor
+==============
 > A generic JSON editor, specifically designed for attaching to React state values.
 
-This project uses submodules, so **clone with `--recursive`**.
+### Warnings
+ * no documentation, you'll have to read the source
+ * no tests
 
-[![live demo](docs/_assets/json-editor.png?raw=true)](http://react-json-editor.bitballoon.com/examples/react-state-editor/webapp/)
+### Live Demo
+[![View Live Demo](screenshot.png?raw=true)](http://master-xmc9sn4ypn.elasticbeanstalk.com/app/)
 
-## Build the library
+Here is the [live demo](http://master-xmc9sn4ypn.elasticbeanstalk.com/app/), and [source code to the live demo](https://github.com/prognostic-llc/react-json-editor-example).
 
-    grunt
+There are probably features missing. Please open an issue!
 
-## Build the example
-
-    cd examples/react-state-editor
-    grunt
-
- * Use a static HTTP server to serve from the repo root directory, not the example root.
- * Navigate to `http://localhost/examples/react-state-editor/webapp/`
-
- ## FAQ
-
- I get an error like this:
-
->    ! Running "less:development" (less) task
->    ! >> FileError: '../react-treeview/react-treeview.css' wasn't found in styles/react-json-editor.less on line 1, column 1:
->    ! >> 1 @import (less) "../react-treeview/react-treeview.css";
->    ! >> 2
->    ! Warning: Error compiling LESS. Use --force to continue.
->    !
->    ! Aborted due to warnings.
-> >> Use --force to continue.
->
-> Aborted due to warnings.
-
-You didn't clone with `--recursive`. Type `git submodule init && git submodule update` to fix this, or reclone with `--recursive`.
+Please [let me know](https://twitter.com/dustingetz) if you use this, if this project is valued I will invest more time in it. Seriously, please, if you're reading this and want to use it, tweet me.
