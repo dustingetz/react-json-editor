@@ -8,7 +8,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\""
   },
   "main": "dist/react-json-editor.js",
   "jsnext:main": "src/react-json-editor.js",
