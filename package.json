@@ -1,6 +1,6 @@
 {
-  "name": "react-json-editor",
-  "version": "0.2.0-alpha.1",
+  "name": "@dustingetz/react-json-editor",
+  "version": "0.2.0-alpha.2",
   "description": "react json editor",
   "repository": {
     "type": "git",
