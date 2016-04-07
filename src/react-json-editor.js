@@ -15,8 +15,8 @@ class JsonEditor extends React.Component {
     const el = _.map(val, (v, k) => {
       if (_.isArray(v) || _.isObject(v)) {
         return (
-            <TreeView nodeLabel={<code>{k}</code>}>
-              <JsonEditor targetCursor={cur.refine(k)}/>
+            <TreeView nodeLabel={<code>{k}</code>} defaultCollapsed={this.props.initialExpandedLevels <= 0}>
+              <JsonEditor targetCursor={cur.refine(k)} initialExpandedLevels={this.props.initialExpandedLevels - 1}/>
             </TreeView>
         );
       }
@@ -30,6 +30,7 @@ class JsonEditor extends React.Component {
 }
 
 JsonEditor.defaultProps = {
+  initialExpandedLevels: 0,
   targetCursor: undefined // the app state that we're targeting
 };
 
