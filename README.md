@@ -7,9 +7,9 @@ react-json-editor
  * no tests
 
 ### Live Demo
-[![View Live Demo](screenshot.png?raw=true)](http://master-xmc9sn4ypn.elasticbeanstalk.com/app/)
+[![View Live Demo](screenshot.png?raw=true)](http://demo-react-json-editor.s3-website-us-east-1.amazonaws.com/)
 
-Here is the [live demo](http://master-xmc9sn4ypn.elasticbeanstalk.com/app/), and [source code to the live demo](https://github.com/prognostic-llc/react-json-editor-example).
+Here is the [live demo](http://demo-react-json-editor.s3-website-us-east-1.amazonaws.com/), and [source code to the live demo](https://github.com/prognostic-llc/react-json-editor-example).
 
 There are probably features missing. Please open an issue!
 
