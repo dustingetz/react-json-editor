@@ -21,7 +21,7 @@ class JsonEditor extends React.Component {
         );
       }
       else {
-        return <div><code>{k}: </code><JsonLeafEditor cursor={cur.refine(k)} /></div>;
+        return <div key={k}><code>{k}: </code><JsonLeafEditor cursor={cur.refine(k)} /></div>;
       }
     });
 
